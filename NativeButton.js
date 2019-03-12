@@ -1,6 +1,6 @@
 'use strict';
 import React from "react";
-import { Platform, Text, StyleSheet, Touchable, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
+import { Platform, Text, StyleSheet, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
 
 type ButtonProps = $ReadOnly<{|
 
