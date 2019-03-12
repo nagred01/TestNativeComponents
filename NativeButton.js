@@ -2,7 +2,7 @@
 import React from "react";
 import { Platform, Text, StyleSheet, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
 
-type ButtonProps = $ReadOnly<{|
+type ButtonProps = {
 
   title: string,
 
@@ -12,7 +12,7 @@ type ButtonProps = $ReadOnly<{|
 
   disabled?: ?boolean,
 
-|}>;
+};
 
 
 
