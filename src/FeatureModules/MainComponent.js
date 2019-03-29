@@ -17,6 +17,7 @@ import NativeToast from '../Components/NativeToast';
 import NativeSelect from '../Components/NativeSelect';
 import NativeButton from '../Components/NativeButton';
 import NativeDataList from '../Components/NativeDataList';
+import NativeImage from '../Components/NativeImage';
 import { Container } from "../Components/Container";
 
 export default class MainComponent extends Component {
@@ -245,7 +246,10 @@ export default class MainComponent extends Component {
           itemsSource={this.state.dataListItems}
           onClick={(item) => alert(JSON.stringify(item))}
         />
-
+        <NativeImage
+            imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636-.jpeg'}
+            imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
+          />
 
       </View>
     )
