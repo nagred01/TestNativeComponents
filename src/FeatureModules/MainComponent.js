@@ -9,6 +9,7 @@ import NativeNotification from '../Components/NativeNotifcation';
 import NativeValidationErrorMessage from '../Components/NativeValidationErrorMessage';
 import NativeButtonStyle from '../CommonStyles/NativeButtonStyle';
 import NativeDataListStyle from '../CommonStyles/NativeDataListStyle';
+import NativeImageStyle from '../CommonStyles/NativeImageStyle';
 
 import PopoverContainer from '../Components/Popover/PopoverContainer';
 import NativePopover from '../Components/Popover/NativePopover';
@@ -247,7 +248,8 @@ export default class MainComponent extends Component {
           onClick={(item) => alert(JSON.stringify(item))}
         />
         <NativeImage
-            imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636-.jpeg'}
+            imgStyle={NativeImageStyle.image}
+            imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'}
             imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
           />
 
@@ -286,14 +288,5 @@ const styles = StyleSheet.create({
   },
   popoverText: {
     color: '#E4FDE1',
-  },
-  buttons: {
-    position: 'absolute',
-    flexDirection: 'row',
-    width: '100%',
-    top: 0,
-    left: 0,
-    marginTop: 20,
-    justifyContent: 'space-around',
   },
 })

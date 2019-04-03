@@ -1,11 +1,12 @@
 import * as React from "react";
-import { Image } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
 
 interface ImageProps extends NativeControl {
     className:string,
     imageUrl:string,
-    imageAlt:string
+    imageAlt:string,
+    imgStyle:{}
 }
 
 export default class NativeImage extends React.Component<ImageProps> {
@@ -14,17 +15,33 @@ export default class NativeImage extends React.Component<ImageProps> {
         this.state={imageError:0}
     }
     _onError = () => {
-        this.setState({imageError: 1})
+        let { imageError } = this.state;
+        imageError++;
+        this.setState({imageError})
     }
     render() {
-        const {imageUrl, imageAlt} = this.props
+        const {imageUrl, imageAlt,imgStyle} = this.props
         return (
-           <Image
-               resizeMode={'contain'}
-                source={{uri:this.state.imageError === 1 ? imageAlt : imageUrl}}
-                style={{width: 200, height: 200}}
-                onError={this._onError}
-           />
+            <View>
+            {/*{this.state.imageError > 1 ?*/}
+               {/*<View style={{flexDirection:'row'}}>*/}
+               {/*<Image*/}
+                {/*resizeMode={'contain'}*/}
+                 {/*source={{uri:'brocken image uri'}}*/}
+                 {/*style={{height:20, width:20}}*/}
+                 {/*onError={this._onError}*/}
+            {/*/>*/}
+            {/*<Text>{'imageName'}</Text>*/}
+               {/*</View>*/}
+                {/*: <Image*/}
+                {/*resizeMode={'contain'}*/}
+                 {/*source={{uri:this.state.imageError === 1 ? imageAlt : imageUrl}}*/}
+                 {/*style={imgStyle}*/}
+                 {/*onError={this._onError}*/}
+            {/*/>*/}
+            {/*}*/}
+            </View>
+
     );
     }
 }

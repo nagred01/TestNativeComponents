@@ -2,6 +2,7 @@ import { Text, Button, View } from 'native-base';
 import React, { Component } from 'react';
 import ControlPanel from './ControlPanel';
 import MainComponent from './MainComponent';
+import StyleDemoComponent from './StyleDemoComponent';
 import Drawer from 'react-native-drawer';
 import NativeNotification from '../Components/NativeNotifcation'
 import NativeDrawer from '../Components/NativeDrawer';
@@ -44,9 +45,12 @@ class Test extends Component {
         let style = Platform.OS=="ios" ? { height : 20,flex : 1,backgroundColor:"white"} : { flex : 1}
         return (
             <ScrollView style={style}>
+                {/*<View style={style}>*/}
+                    {/*<Text onPress={this.onClick}> Open Drawer</Text>*/}
+                    {/*<MainComponent />*/}
+                {/*</View>*/}
                 <View style={style}>
-                    <Text onPress={this.onClick}> Open Drawer</Text> 
-                    <MainComponent />
+                    <StyleDemoComponent/>
                 </View>
             </ScrollView>
         )
@@ -54,30 +58,30 @@ class Test extends Component {
 
     render() {
        return (
-            
-            <NativeDrawer 
+
+            <NativeDrawer
                 ref={instance => { this.drawer = instance; }}
                 openDrawer={this.openControlPanel} content={<ControlPanel closeDrawer={this.close} />}
                     mainView = { this.renderMainView()}
-                /> 
+                />
 
             // <Drawer content={<ControlPanel closeDrawer={this.closeControlPanel}/>}
             //     ref={(ref) => { this.drawer = ref; }}>
             //     <Text onPress={this.openControlPanel}> Open Drawer</Text>
             // <NativeNotification content={this.state.content}></NativeNotification>
 
-            //       { this.renderMainView()}   
+            //       { this.renderMainView()}
             //    {/* <MainComponent /> */}
             // </Drawer>
         //)
         //return (
         //    this.renderMainView()
             // <View style={{flex:1}}>
-            //     <NativeDrawer 
+            //     <NativeDrawer
             //     ref={instance => { this.child = instance; }}
             //     openDrawer={this.openControlPanel} content={<ControlPanel closeDrawer={this.close} />}
             //         mainView = { this.renderMainView()}
-            //     /> 
+            //     />
             // </View>
         )
     }
