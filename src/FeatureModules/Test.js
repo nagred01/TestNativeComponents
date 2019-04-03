@@ -42,16 +42,16 @@ class Test extends Component {
     }
 
     renderMainView(){
-        let style = Platform.OS=="ios" ? { height : 20,flex : 1,backgroundColor:"white"} : { flex : 1}
+        let style = Platform.OS=="ios" ? { paddingTop : 20,flex : 1,backgroundColor:"white"} : { flex : 1}
         return (
             <ScrollView style={style}>
-                {/*<View style={style}>*/}
-                    {/*<Text onPress={this.onClick}> Open Drawer</Text>*/}
-                    {/*<MainComponent />*/}
-                {/*</View>*/}
                 <View style={style}>
-                    <StyleDemoComponent/>
+                    <Text onPress={this.onClick}> Open Drawer</Text>
+                    <MainComponent />
                 </View>
+                {/*<View style={style}>*/}
+                    {/*<StyleDemoComponent/>*/}
+                {/*</View>*/}
             </ScrollView>
         )
     }

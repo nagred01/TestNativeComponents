@@ -5,21 +5,6 @@ import NativeTextBox from '../Components/NativeTextBox';
 import NativeDecimalTextBox from '../Components/NativeDecimalTextBox';
 import NativeTextStyles from '../CommonStyles/NativeTextStyle';
 import NativeTextBoxStyles from '../CommonStyles/NativeTextBoxStyle';
-import NativeNotification from '../Components/NativeNotifcation';
-import NativeValidationErrorMessage from '../Components/NativeValidationErrorMessage';
-import NativeButtonStyle from '../CommonStyles/NativeButtonStyle';
-import NativeDataListStyle from '../CommonStyles/NativeDataListStyle';
-import NativeImageStyle from '../CommonStyles/NativeImageStyle';
-
-import PopoverContainer from '../Components/Popover/PopoverContainer';
-import NativePopover from '../Components/Popover/NativePopover';
-import NativeReadOnlyField from '../Components/NativeReadOnlyField';
-import NativeToast from '../Components/NativeToast';
-import NativeSelect from '../Components/NativeSelect';
-import NativeButton from '../Components/NativeButton';
-import NativeDataList from '../Components/NativeDataList';
-import NativeImage from '../Components/NativeImage';
-import { Container } from "../Components/Container";
 
 export default class MainComponent extends Component {
 

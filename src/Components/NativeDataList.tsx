@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import { TouchableOpacity, Text, View, FlatList } from 'react-native';
 import NativeControl from "../Interfaces/NativeControl";
 
@@ -14,6 +14,11 @@ interface DataListProps extends NativeControl {
     expandable: boolean,
     noDataText: string,
     emptyListClassName: string,
+    itemStyle:{},
+    subItemStyle:{},
+    titleText:{},
+    titleBlackText:{},
+    detailText:{}
 }
 export default class NativeDataList extends React.Component<DataListProps> {
     constructor(props) {
@@ -41,7 +46,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
         }
     }
     render() {
-        const { } = this.props
+        const {itemStyle, subItemStyle, titleText, titleBlackText, detailText } = this.props
         console.log({ data: this.state.data })
         return (
             <FlatList
@@ -49,39 +54,23 @@ export default class NativeDataList extends React.Component<DataListProps> {
                 extraData={this.state}
                 renderItem={({ item, index }) => (
                     <View>
-                        <TouchableOpacity onPress={() => this._onExpand(item, index)} style={{ backgroundColor: '#E8E8E8', padding: 8 }} key={index}>
+                        <TouchableOpacity
+                            onPress={() => this._onExpand(item, index)}
+                            style={itemStyle} key={index}>
                             <Text style={{ fontSize: 16 }}>{item.acType}</Text>
                         </TouchableOpacity>
-                        {console.log({ label: item.label, expanded: item.expanded })}
                         {item.expanded === true && item.hasOwnProperty('items') && item.items.map((subItem, subIndex) => (
-                            <TouchableOpacity onPress={() => this.handleClick(subItem)}
-                                style={{
-                                    padding: 12,
-                                    backgroundColor: 'white',
-                                    borderColor:'#ccc',
-                                    borderBottomWidth:item.items.length-1 === subIndex ? 0 :1
-                                }} key={subIndex + '' + subIndex}>
+                            <TouchableOpacity key={subIndex+subIndex} onPress={() => this.handleClick(subItem)}
+                                style={subItemStyle} key={subIndex + '' + subIndex}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <Text style={{
-                                        fontSize: 20,
-                                        color: '#4B759B'
-                                    }}>{subItem.name}</Text>
+                                    <Text style={titleText}>{subItem.name}</Text>
                                     <View style={{ flex: 1 }} />
-                                    <Text style={{
-                                        fontSize: 20,
-                                        color:'black'
-                                    }}>{subItem.balance}</Text>
+                                    <Text style={titleBlackText}>{subItem.balance}</Text>
                                 </View>
                                 <View style={{ flexDirection: 'row', marginTop:2 }}>
-                                    <Text style={{
-                                        fontSize: 14,
-                                        color:'black'
-                                    }}>{subItem.xType}</Text>
+                                    <Text style={detailText}>{subItem.xType}</Text>
                                     <View style={{ flex: 1 }} />
-                                    <Text style={{
-                                        fontSize: 14,
-                                        color:'black'
-                                    }}>{subItem.availableType === ''? subItem.outStanding : subItem.availableType+' Balance'}</Text>
+                                    <Text style={detailText}>{subItem.availableType === ''? subItem.outStanding : subItem.availableType+' Balance'}</Text>
                                 </View>
                             </TouchableOpacity>
                         ))}

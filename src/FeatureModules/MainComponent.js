@@ -9,7 +9,7 @@ import NativeNotification from '../Components/NativeNotifcation';
 import NativeValidationErrorMessage from '../Components/NativeValidationErrorMessage';
 import NativeButtonStyle from '../CommonStyles/NativeButtonStyle';
 import NativeDataListStyle from '../CommonStyles/NativeDataListStyle';
-import NativeImageStyle from '../CommonStyles/NativeImageStyle';
+
 
 import PopoverContainer from '../Components/Popover/PopoverContainer';
 import NativePopover from '../Components/Popover/NativePopover';
@@ -18,7 +18,6 @@ import NativeToast from '../Components/NativeToast';
 import NativeSelect from '../Components/NativeSelect';
 import NativeButton from '../Components/NativeButton';
 import NativeDataList from '../Components/NativeDataList';
-import NativeImage from '../Components/NativeImage';
 import { Container } from "../Components/Container";
 
 export default class MainComponent extends Component {
@@ -246,12 +245,20 @@ export default class MainComponent extends Component {
         <NativeDataList
           itemsSource={this.state.dataListItems}
           onClick={(item) => alert(JSON.stringify(item))}
+          itemStyle={NativeDataListStyle.itemParent}
+          subItemStyle={NativeDataListStyle.subItemParent}
+          titleText={NativeDataListStyle.titleThemeText}
+          titleBlackText={NativeDataListStyle.titleBlackText}
+          detailText={NativeDataListStyle.detailText}
+
+
+
         />
-        <NativeImage
-            imgStyle={NativeImageStyle.image}
-            imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'}
-            imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
-          />
+        {/*<NativeImage*/}
+            {/*imgStyle={NativeImageStyle.image}*/}
+            {/*imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg'}*/}
+            {/*imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}*/}
+          {/*/>*/}
 
       </View>
     )

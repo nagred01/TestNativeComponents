@@ -1,23 +1,23 @@
 import { StyleSheet} from 'react-native';
-
+import StyleConfig from './StyleConfig';
 const NativeButtonStyles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     width: '100%',
     top: 0,
     left: 0,
-    marginVertical: 8,
+    marginVertical: StyleConfig.countPixelRatio(8),
     alignItems:'center',
     justifyContent:'center',
-    borderWidth:2,
+    borderWidth: StyleConfig.countPixelRatio(2),
     borderColor:'#999',
-    borderRadius:2
+    borderRadius: StyleConfig.countPixelRatio(8),
   },
-  
+
   buttonText: {
-    fontSize:16,
+    fontSize:StyleConfig.fontSizeH3,
     fontWeight:'bold',
-    paddingVertical:8
+    paddingVertical: StyleConfig.countPixelRatio(8),
   }
 });
 
