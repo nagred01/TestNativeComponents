@@ -45,13 +45,13 @@ class Test extends Component {
         let style = Platform.OS=="ios" ? { paddingTop : 20,flex : 1,backgroundColor:"white"} : { flex : 1}
         return (
             <ScrollView style={style}>
-                <View style={style}>
-                    <Text onPress={this.onClick}> Open Drawer</Text>
-                    <MainComponent />
-                </View>
                 {/*<View style={style}>*/}
-                    {/*<StyleDemoComponent/>*/}
+                    {/*<Text onPress={this.onClick}> Open Drawer</Text>*/}
+                    {/*<MainComponent />*/}
                 {/*</View>*/}
+                <View style={style}>
+                    <StyleDemoComponent/>
+                </View>
             </ScrollView>
         )
     }
