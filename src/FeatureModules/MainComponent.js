@@ -18,6 +18,7 @@ import NativeSelect from '../Components/NativeSelect';
 import NativeButton from '../Components/NativeButton';
 import NativeDataList from '../Components/NativeDataList';
 import NativeImage from '../Components/NativeImage';
+import NativeDatePicker from '../Components/NativeDatePicker';
 import { Container } from "../Components/Container";
 
 export default class MainComponent extends Component {
@@ -250,7 +251,18 @@ export default class MainComponent extends Component {
             imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636-.jpeg'}
             imageAlt={'https://images.pexels.com/photos/532168/pexels-photo-532168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
           />
+          <NativeDatePicker
+              style={styles.dateContainer}
+              renderDate={({ year, month, day, date }) => {
+                  if (!date) {
+                      return <Text style={ styles.text}>Date of birth</Text>
+                  }
 
+                  const dateStr = `${day}-${month}-${year}`
+                  return <Text style={styles.text}>{dateStr}</Text>
+              }}
+
+          />
       </View>
     )
   }
@@ -296,4 +308,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
     justifyContent: 'space-around',
   },
+    dateContainer: {
+        backgroundColor: '#fff',
+        borderBottomColor: '#ddd',
+        borderBottomWidth: 1,
+        justifyContent: 'center',
+        borderRadius: 2,
+        height: 50
+    },
+    placeholderText: {
+        color: '#ddd'
+    },
+    text: {
+        width: '100%',
+        paddingHorizontal: 12,
+        paddingVertical: 4,
+        fontSize: 18,
+
+    }
 })
