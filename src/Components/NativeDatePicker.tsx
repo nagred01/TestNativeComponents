@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
     DatePickerAndroid,
     DatePickerIOS,
@@ -12,15 +12,49 @@ import {
     Button
 } from 'react-native'
 import PropTypes from 'prop-types'
+import NativeControl from "../Interfaces/NativeControl";
 
 const isAndroid = Platform.OS === 'android'
 
 function noop () {}
 
-/**
- * React Native DatePicker Modal Component for iOS/Android
- */
-class NativeDatePicker extends Component {
+export interface DatePickerProps extends NativeControl {
+
+    required: boolean;
+
+    calendarImageUrl: string,
+
+    disabledDates: Date[],
+
+    disabledDatesCssClass: string,
+
+    disableWeekends: boolean,
+
+    placeholder: string,
+
+    leadTime: number,
+
+    dateFormat: string,
+
+    buttonText: string,
+
+    displayNumberOfMonths: number,
+    canChangeYear: boolean,
+    //TODO --------------------------
+    renderDate: ()=> void,
+    startDate: Date,
+    onError: (error) => void,
+    onDateChanged: (date)=> void,
+    minDate: Date,
+    maxDate: Date,
+    modalButtonText: string,
+    modalOverlayStyle: {},
+    modalStyle: {},
+    modalButtonStyle: {},
+    modalBtnContainer: {},
+    style: {}
+s}
+class NativeDatePicker extends React.Component<DatePickerProps> {
     state = {
         showIOSModal: false,
         date: undefined
@@ -41,63 +75,6 @@ class NativeDatePicker extends Component {
         maxDate: undefined,
         minDate: undefined,
         modalButtonText: 'Done'
-    }
-
-    static propTypes = {
-        /**
-         * Render Component for date. Receives object with selected `date`, `year`, `day` and `month`
-         */
-        renderDate: PropTypes.func,
-        /**
-         * Start date for DatePicker (Default: Current Date `new Date()`).
-         */
-        startDate: PropTypes.instanceOf(Date),
-        /**
-         * Function called with error argument if there is error setting date:
-         *
-         * @example
-         * ```js
-         * function onError(error) {
-         *    console.log(error)
-         * }
-         */
-        onError: PropTypes.func,
-        /**
-         * Function called when new date has been selected. Receives object with selected `date`, `year`, `day` and `month`.
-         */
-        onDateChanged: PropTypes.func,
-        /**
-         * Minimum date that can be selected.
-         */
-        minDate: PropTypes.instanceOf(Date),
-        /**
-         * Maximum date that can be selected.
-         */
-        maxDate: PropTypes.instanceOf(Date),
-        /**
-         * Text for the iOS modal button (default: "Done").
-         */
-        modalButtonText: PropTypes.string,
-        /**
-         * Styles for the modal overlay.
-         */
-        modalOverlayStyle: ViewPropTypes.style,
-        /**
-         * Styles for the modal.
-         */
-        modalStyle: ViewPropTypes.style,
-        /**
-         * Styles for the modal button.
-         */
-        modalButtonStyle: ViewPropTypes.style,
-        /**
-         * Styles for the modal button container.
-         */
-        modalBtnContainer: ViewPropTypes.style,
-        /**
-         * Styles for the container of `renderDate`.
-         */
-        style: ViewPropTypes.style
     }
 
     handlePressed = async () => {
