@@ -63,7 +63,7 @@ class NativeDatePicker extends React.Component<DatePickerProps> {
     static defaultProps = {
         renderDate: ({ year, month, day, date }) => {
             if (date) {
-                const str = `${year}-${month}-${day}`
+                const str = `${month}-${day}-${year}`
                 return <Text>{str}</Text>
             }
 

@@ -50,7 +50,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                 renderItem={({ item, index }) => (
                     <View>
                         <TouchableOpacity onPress={() => this._onExpand(item, index)} style={{ backgroundColor: '#E8E8E8', padding: 8 }} key={index}>
-                            <Text style={{ fontSize: 16 }}>{item.acType}</Text>
+                            <Text style={{ fontSize: 18 }}>{item.acType}</Text>
                         </TouchableOpacity>
                         {console.log({ label: item.label, expanded: item.expanded })}
                         {item.expanded === true && item.hasOwnProperty('items') && item.items.map((subItem, subIndex) => (
@@ -60,7 +60,7 @@ export default class NativeDataList extends React.Component<DataListProps> {
                                     backgroundColor: 'white',
                                     borderColor:'#ccc',
                                     borderBottomWidth:item.items.length-1 === subIndex ? 0 :1
-                                }} key={subIndex + '' + subIndex}>
+                                }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text style={{
                                         fontSize: 20,

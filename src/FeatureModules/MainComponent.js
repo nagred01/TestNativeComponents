@@ -8,8 +8,6 @@ import NativeTextBoxStyles from '../CommonStyles/NativeTextBoxStyle';
 import NativeNotification from '../Components/NativeNotifcation';
 import NativeValidationErrorMessage from '../Components/NativeValidationErrorMessage';
 import NativeButtonStyle from '../CommonStyles/NativeButtonStyle';
-import NativeDataListStyle from '../CommonStyles/NativeDataListStyle';
-
 import PopoverContainer from '../Components/Popover/PopoverContainer';
 import NativePopover from '../Components/Popover/NativePopover';
 import NativeReadOnlyField from '../Components/NativeReadOnlyField';
@@ -245,7 +243,7 @@ export default class MainComponent extends Component {
 
         <NativeDataList
           itemsSource={this.state.dataListItems}
-          onClick={(item) => alert(JSON.stringify(item))}
+         // onClick={(item) => alert(JSON.stringify(item))}
         />
         <NativeImage
             imageUrl={'https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636-.jpeg'}
@@ -255,10 +253,10 @@ export default class MainComponent extends Component {
               style={styles.dateContainer}
               renderDate={({ year, month, day, date }) => {
                   if (!date) {
-                      return <Text style={ styles.text}>Date of birth</Text>
+                      return <Text style={ styles.text}>Select Date</Text>
                   }
 
-                  const dateStr = `${day}-${month}-${year}`
+                  const dateStr = `${month}-${day}-${year}`
                   return <Text style={styles.text}>{dateStr}</Text>
               }}
 
